@@ -71,7 +71,6 @@ Revealed suspicious activity on **port 4444**.
 **Protocol:** TCP/4444  
 **Associated Tool:** Metasploit
 
-![Reverse Shell Traffic](task2-reverse-shell/reverse-shell-traffic.png)
 
 ---
 
