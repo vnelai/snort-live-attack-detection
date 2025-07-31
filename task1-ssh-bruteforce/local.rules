@@ -1,0 +1,1 @@
+drop tcp any any -> any 22 (msg:"SSH attack"; sid:100001; rev:1;)
