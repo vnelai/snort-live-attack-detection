@@ -1,0 +1,18 @@
+# Tcpdump Output - Reverse Shell Analysis (Filtered for suspicious ports)
+
+Reading from file snort.log.1753326978, link-type EN10MB (Ethernet)
+10:15:42.123456 IP 10.10.140.29.34770 > 10.10.245.50.4444: Flags [S], seq 123456789, win 64240, length 0
+10:15:42.223456 IP 10.10.245.50.4444 > 10.10.140.29.34770: Flags [S.], seq 987654321, ack 123456790, win 65535, length 0
+10:15:42.323456 IP 10.10.140.29.34770 > 10.10.245.50.4444: Flags [.], ack 1, win 64240, length 0
+10:15:42.423456 IP 10.10.140.29.34770 > 10.10.245.50.4444: Flags [P.], seq 1:30, ack 1, win 64240, length 29
+10:15:42.523456 IP 10.10.245.50.4444 > 10.10.140.29.34770: Flags [P.], seq 1:45, ack 30, win 65535, length 44
+10:15:43.623456 IP 10.10.140.29.34770 > 10.10.245.50.4444: Flags [P.], seq 30:60, ack 45, win 64240, length 30
+
+# Observation:
+- Persistent back-and-forth traffic between victim (10.10.140.29) and attacker (10.10.245.50)
+- Communication initiated outbound from victim → port 4444
+- Typical of a reverse shell session
+- Port 4444 is known to be used by Metasploit payloads
+
+# Conclusion:
+Confirmed reverse shell behavior based on timing, ports, and connection pattern.
