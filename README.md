@@ -57,6 +57,8 @@ Detect and stop a reverse shell connection using outbound port 4444 (Metasploit)
 `sudo snort -r snort.log.xxxxxxx -X | grep "->" | awk -F'->' '{print $2}' | awk -F':' '{print $2}' | sort | uniq -c | sort -nr`  
 Revealed suspicious activity on **port 4444**.
 
+![Port Usage](task2-reverse-shell/reverse-shell-traffic-ports.png) 
+
 ### 🧪 tcpdump Verification  
 `sudo tcpdump -nnr snort.log.xxxxxxx | grep -E '4444|34770|80'`
 
